@@ -9,7 +9,11 @@ var deck;
 
 var canHit = true;
 
+var playerMoney = 1000;
+var pot = 0;
+
 window.onload = function() {
+    document.getElementById("player-money").innerText = playerMoney;
     buildDeck();
     shuffleDeck();
     startGame();
@@ -49,6 +53,7 @@ function startGame() {
 
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
+    document.getElementById("bet-button").addEventListener("click", bet);
 }
 
 function hit() {
@@ -95,14 +100,21 @@ function stay() {
     if(playerSum > 21)
         message = "You Lose!";
     else if(dealerSum > 21)
+    {
         message = "You Win!";
+        playerMoney += pot;
+    }
     else if(playerSum == dealerSum)
         message = "Tie!"
     else if (playerSum > dealerSum)
+    {
         message = "You Win!";
+        playerMoney += pot;
+    }
     else if (playerSum < dealerSum)
         message = "You Lose!";
 
+    document.getElementById("player-money").innerText = playerMoney;
     document.getElementById("dealer-sum").innerText = dealerSum;
     document.getElementById("result").innerText = message;
 }
@@ -132,4 +144,15 @@ function reduceAce(playerSum, playerAceCount) {
         playerAceCount -= 1;
     }
     return playerSum;
+}
+
+function bet() {
+    let betAmount = document.getElementById("bet-input").value;
+    if(betAmount > playerMoney || betAmount < 1)
+        return
+    pot = 2 * betAmount; 
+    playerMoney -= betAmount; 
+
+    document.getElementById("player-money").innerText = playerMoney;
+    document.getElementById("pot").innerText = pot;
 }

@@ -28,6 +28,23 @@ body {
     font-size: 20px;
 }
 
+#bet {
+    font-size: 20px;
+}
+
 #result {
     font-size: 50px;
+}
+
+#bet-input {
+    margin: 20px;
+    font-size: 20px;
+}
+
+#player-money {
+    font-size: 30px;
+}
+
+#pot {
+    font-size: 30px;
 }
