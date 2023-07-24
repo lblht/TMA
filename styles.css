@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #64BEFF -50%, #6e96ff 69.71%, #2a65ff 150%);
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .character-container { 
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(180deg, wheat, white);
+    transform: scale(7);
+    image-rendering: pixelated;
+    border-radius: 100%;
+  }
+
+ #cat {
+    overflow: hidden;
+    background: url("sprites/CatSpriteSheet.png");
+    width: 32px;
+    height: 32px;
+    position: fixed;
+    top: 10px;
+    left: 6px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+  }
+
+  #cat[catAnim="idle"] {
+    animation: cat-animation-4step 1s steps(4) infinite;
+    background-position-y: 0px;
+  }
+
+  #cat[catAnim="look"] {
+    animation: cat-animation-4step 1s steps(4) infinite;
+    background-position-y: -32px;
+  }
+
+  #cat[catAnim="lick"] {
+    animation: cat-animation-4step 1s steps(4) infinite;
+    background-position-y: -64px;
+  }
+
+  #cat[catAnim="rub"] {
+    animation: cat-animation-4step 1s steps(4) infinite;
+    background-position-y: -96px;
+  }
+
+  #cat[catAnim="walk"] {
+    animation: cat-animation-8step 1s steps(8) infinite;
+    background-position-y: -128px;
+  }
+
+  #cat[catAnim="run"] {
+    animation: cat-animation-8step 1s steps(8) infinite;
+    background-position-y: -160px;
+  }
+
+  #cat[catAnim="sleep"] {
+    animation: cat-animation-4step 1s steps(4) infinite;
+    background-position-y: -192px;
+  }
+
+  #cat[catAnim="tap"] {
+    animation: cat-animation-6step 1s steps(6) infinite;
+    background-position-y: -224px;
+  }
+
+  #cat[catAnim="jump"] {
+    animation: cat-animation-7step 1s steps(7) infinite;
+    background-position-y: -256px;
+  }
+
+  #cat[catAnim="arch"] {
+    animation: cat-animation-8step 1s steps(8) infinite;
+    background-position-y: -288px;
+  }
+
+  @keyframes cat-animation-4step {
+    from { background-position-x: 0px; }
+    to { background-position-x: -128px; }
+  }
+
+  @keyframes cat-animation-6step {
+    from { background-position-x: 0px; }
+    to { background-position-x: -192px; }
+  }
+
+  @keyframes cat-animation-7step {
+    from { background-position-x: 0px; }
+    to { background-position-x: -224px; }
+  }
+
+  @keyframes cat-animation-8step {
+    from { background-position-x: 0px; }
+    to { background-position-x: -256px; }
+  }
+
+  #character {
+    overflow: hidden;
+    background: url("sprites/Character.png");
+    width: 16px;
+    height: 16px;
+    position: fixed;
+    top: 26px;
+    left: 32px;
+  }
+
+  #bubble {
+    overflow: hidden;
+    background: url("sprites/bubble.png");
+    width: 16px;
+    height: 16px;
+    position: fixed;
+    top: 19px;
+    left: 40px;
+    font-size: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  .shadow {
+    overflow: hidden;
+    background: url("sprites/shadow.png");
+    width: 16px;
+    height: 16px;
+    position: fixed;
+    top: 34px;
+    z-index: -1;
+    opacity: 10%;
+  }
+
+  .cat-shadow {
+    left: 14px;
+  }
+
+  .character-shadow {
+    left: 32px;
+  }
+
